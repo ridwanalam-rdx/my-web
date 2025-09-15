@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewer Dashboard - GameForge 3D</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <div class="glow-overlay"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>GameForge 3D</h2>
+                <span class="premium-badge">VIEWER</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link" id="userProfile">Welcome, User</a>
+                <a href="#" class="nav-link" onclick="logout()">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Download Center</h1>
+                <p>Browse and download emulators, settings, and optimization tools</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Available Emulators</h3>
+                    <div class="download-section" id="emulatorDownloads">
+                        <p class="empty-message">No emulators available yet</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Settings & Configurations</h3>
+                    <div class="download-section" id="settingsDownloads">
+                        <p class="empty-message">No settings available yet</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Tools & Scripts</h3>
+                    <div class="download-section" id="toolsDownloads">
+                        <p class="empty-message">No tools available yet</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Download Statistics</h3>
+                    <div class="download-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="myDownloads">0</span>
+                            <span class="stat-label">My Downloads</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="availableFiles">0</span>
+                            <span class="stat-label">Available Files</span>
+                        </div>
+                    </div>
+                    <div class="recent-downloads">
+                        <h4>Recent Downloads</h4>
+                        <div id="recentList">
+                            <p class="empty-message">No downloads yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="viewer-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Registration - GameForge 3D</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #222; color: white; }
+        .form-group { margin: 10px 0; }
+        label { display: block; margin-bottom: 5px; }
+        input { padding: 10px; width: 300px; margin-bottom: 10px; }
+        button { padding: 10px 20px; background: #0066cc; color: white; border: none; cursor: pointer; }
+        .message { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .error { background: #ff4444; }
+        .success { background: #44ff44; color: black; }
+    </style>
+</head>
+<body>
+    <h1>Test Registration Form</h1>
+    
+    <form id="testForm">
+        <div class="form-group">
+            <label>Registration Key:</label>
+            <input type="text" id="regKey" value="GAMEFORGE-PREMIUM-2024" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" id="username" value="testuser" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" id="email" value="test@email.com" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" id="password" value="Password123" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Confirm Password:</label>
+            <input type="password" id="confirmPassword" value="Password123" required>
+        </div>
+        
+        <button type="submit">Test Registration</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <h3>Debug Info:</h3>
+    <div id="debug"></div>
+    
+    <script>
+        // Simple registration test
+        const validKeys = [
+            'GAMEFORGE-PREMIUM-2024',
+            'ELITE-GAMER-ACCESS-001',
+            'PRO-DEVELOPER-KEY-999',
+            'MASTER-BUILDER-2024',
+            'ULTIMATE-ACCESS-VIP'
+        ];
+        
+        document.getElementById('testForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const regKey = document.getElementById('regKey').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            const result = document.getElementById('result');
+            const debug = document.getElementById('debug');
+            
+            // Debug info
+            debug.innerHTML = `
+                <p><strong>Registration Key:</strong> "${regKey}"</p>
+                <p><strong>Valid Keys:</strong> ${validKeys.join(', ')}</p>
+                <p><strong>Key Valid:</strong> ${validKeys.includes(regKey.toUpperCase())}</p>
+                <p><strong>Email Valid:</strong> ${/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)}</p>
+                <p><strong>Password Valid:</strong> ${/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d@$!%*?&]{8,}$/.test(password)}</p>
+                <p><strong>Passwords Match:</strong> ${password === confirmPassword}</p>
+            `;
+            
+            // Validation
+            if (!validKeys.includes(regKey.toUpperCase())) {
+                result.innerHTML = '<div class="message error">❌ Invalid registration key</div>';
+                return;
+            }
+            
+            if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+                result.innerHTML = '<div class="message error">❌ Invalid email format</div>';
+                return;
+            }
+            
+            if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d@$!%*?&]{8,}$/.test(password)) {
+                result.innerHTML = '<div class="message error">❌ Password must be 8+ chars with uppercase, lowercase, and number</div>';
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                result.innerHTML = '<div class="message error">❌ Passwords do not match</div>';
+                return;
+            }
+            
+            // Success
+            result.innerHTML = '<div class="message success">✅ Registration validation passed! All fields are correct.</div>';
+            
+            // Save to localStorage (simulate registration)
+            const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+            const newUser = {
+                id: Date.now(),
+                username,
+                email,
+                password: hashPassword(password),
+                registrationKey: regKey,
+                createdAt: new Date().toISOString(),
+                isPremium: true
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('registeredUsers', JSON.stringify(users));
+            
+            setTimeout(() => {
+                result.innerHTML += '<div class="message success">✅ User saved to localStorage! You can now try logging in.</div>';
+            }, 1000);
+        });
+        
+        function hashPassword(password) {
+            let hash = 0;
+            for (let i = 0; i < password.length; i++) {
+                const char = password.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return hash.toString();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - GameForge 3D</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <div class="glow-overlay"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>GameForge 3D</h2>
+                <span class="premium-badge">ADMIN</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link" id="userProfile">Admin Panel</a>
+                <a href="#" class="nav-link" onclick="logout()">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Admin Dashboard</h1>
+                <p>Upload and manage emulators, APKs, and tools for viewers</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Upload Emulators</h3>
+                    <div class="upload-options">
+                        <button class="upload-mode-btn active" onclick="switchUploadMode('emulator', 'files')">Files</button>
+                        <button class="upload-mode-btn" onclick="switchUploadMode('emulator', 'folder')">Folder</button>
+                    </div>
+                    <div class="upload-area" id="emulatorUpload">
+                        <div class="upload-icon">🎮</div>
+                        <p>Upload emulator files (APK, EXE)</p>
+                        <input type="file" id="emulatorFile" accept=".apk,.exe,.msi,.zip,.rar" multiple>
+                        <input type="file" id="emulatorFolder" webkitdirectory directory multiple style="display:none;">
+                        <button class="btn-upload">Browse Files</button>
+                    </div>
+                    <div class="uploaded-files" id="emulatorFiles"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Upload Settings & Configs</h3>
+                    <div class="upload-options">
+                        <button class="upload-mode-btn active" onclick="switchUploadMode('settings', 'files')">Files</button>
+                        <button class="upload-mode-btn" onclick="switchUploadMode('settings', 'folder')">Folder</button>
+                    </div>
+                    <div class="upload-area" id="settingsUpload">
+                        <div class="upload-icon">⚙️</div>
+                        <p>Upload configuration files and settings</p>
+                        <input type="file" id="settingsFile" accept=".cfg,.ini,.json,.xml,.conf,.txt" multiple>
+                        <input type="file" id="settingsFolder" webkitdirectory directory multiple style="display:none;">
+                        <button class="btn-upload">Browse Files</button>
+                    </div>
+                    <div class="uploaded-files" id="settingsFiles"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Upload Tools & Scripts</h3>
+                    <div class="upload-options">
+                        <button class="upload-mode-btn active" onclick="switchUploadMode('tools', 'files')">Files</button>
+                        <button class="upload-mode-btn" onclick="switchUploadMode('tools', 'folder')">Folder</button>
+                    </div>
+                    <div class="upload-area" id="toolsUpload">
+                        <div class="upload-icon">🔧</div>
+                        <p>Upload optimization tools and scripts</p>
+                        <input type="file" id="toolsFile" accept=".exe,.bat,.sh,.py,.js,.zip" multiple>
+                        <input type="file" id="toolsFolder" webkitdirectory directory multiple style="display:none;">
+                        <button class="btn-upload">Browse Files</button>
+                    </div>
+                    <div class="uploaded-files" id="toolsFiles"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>User Management</h3>
+                    <div class="user-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="totalUsers">0</span>
+                            <span class="stat-label">Total Users</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="totalDownloads">0</span>
+                            <span class="stat-label">Downloads</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="totalFiles">0</span>
+                            <span class="stat-label">Files Uploaded</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="viewUsers()">Manage Users</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>

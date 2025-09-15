@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - GameForge 3D</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <div class="glow-overlay"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>GameForge 3D</h2>
+                <span class="premium-badge">PREMIUM</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link" id="userProfile">Welcome, User</a>
+                <a href="#" class="nav-link" onclick="logout()">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Premium Dashboard</h1>
+                <p>Manage your 3D models and optimization tools</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Upload APK Files</h3>
+                    <div class="upload-area" id="apkUpload">
+                        <div class="upload-icon">📱</div>
+                        <p>Drag & drop your APK files</p>
+                        <input type="file" id="apkFile" accept=".apk" multiple>
+                        <button class="btn-upload">Browse APK Files</button>
+                    </div>
+                    <div class="uploaded-files" id="apkFiles"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Upload EXE Files</h3>
+                    <div class="upload-area" id="exeUpload">
+                        <div class="upload-icon">💻</div>
+                        <p>Upload executable files & tools</p>
+                        <input type="file" id="exeFile" accept=".exe,.msi" multiple>
+                        <button class="btn-upload">Browse EXE Files</button>
+                    </div>
+                    <div class="uploaded-files" id="exeFiles"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Upload Settings & Scripts</h3>
+                    <div class="upload-area" id="settingsUpload">
+                        <div class="upload-icon">⚙️</div>
+                        <p>Upload config files & scripts</p>
+                        <input type="file" id="settingsFile" accept=".cfg,.ini,.json,.xml,.bat,.sh,.py" multiple>
+                        <button class="btn-upload">Browse Files</button>
+                    </div>
+                    <div class="uploaded-files" id="settingsFiles"></div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>3D Model Library</h3>
+                    <div class="model-library">
+                        <div class="library-stats">
+                            <div class="stat">
+                                <span class="stat-number">24</span>
+                                <span class="stat-label">Models</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">156</span>
+                                <span class="stat-label">Downloads</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary">Browse Library</button>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>System Performance</h3>
+                    <div class="performance-metrics">
+                        <div class="metric">
+                            <span class="metric-label">CPU Usage</span>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 45%"></div>
+                            </div>
+                            <span class="metric-value">45%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">GPU Usage</span>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 78%"></div>
+                            </div>
+                            <span class="metric-value">78%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Memory</span>
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 62%"></div>
+                            </div>
+                            <span class="metric-value">62%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

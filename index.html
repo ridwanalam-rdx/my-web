@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameForge 3D - Premium Gaming Models</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <div class="glow-overlay"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>GameForge 3D</h2>
+                <span class="premium-badge">PREMIUM</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#models" class="nav-link">3D Models</a>
+                <a href="#tools" class="nav-link">Tools</a>
+                <a href="auth.html" class="nav-link login-btn">Sign In / Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Premium Gaming 3D Models</h1>
+                <p class="hero-subtitle">Professional emulator settings & optimization tools</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary glow-btn">Explore Models</button>
+                    <button class="btn-secondary">View Tools</button>
+                </div>
+            </div>
+            <div class="hero-3d">
+                <canvas id="hero-canvas"></canvas>
+            </div>
+        </section>
+
+        <section id="models" class="models-section">
+            <div class="container">
+                <h2 class="section-title">Featured 3D Models</h2>
+                <div class="models-grid">
+                    <div class="model-card">
+                        <div class="model-preview">
+                            <canvas class="model-canvas" data-model="cube"></canvas>
+                        </div>
+                        <div class="model-info">
+                            <h3>Gaming Cube</h3>
+                            <p>High-poly gaming asset</p>
+                            <button class="btn-download">Download</button>
+                        </div>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-preview">
+                            <canvas class="model-canvas" data-model="sphere"></canvas>
+                        </div>
+                        <div class="model-info">
+                            <h3>Energy Sphere</h3>
+                            <p>Animated energy orb</p>
+                            <button class="btn-download">Download</button>
+                        </div>
+                    </div>
+                    <div class="model-card">
+                        <div class="model-preview">
+                            <canvas class="model-canvas" data-model="torus"></canvas>
+                        </div>
+                        <div class="model-info">
+                            <h3>Portal Ring</h3>
+                            <p>Sci-fi portal model</p>
+                            <button class="btn-download">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <h2 class="section-title">Optimization Tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">📱</div>
+                        <h3>APK Manager</h3>
+                        <p>Upload and manage Android APK files</p>
+                        <button class="btn-tool">Upload APK</button>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">💻</div>
+                        <h3>EXE Tools</h3>
+                        <p>Upload executable files and gaming tools</p>
+                        <button class="btn-tool">Upload EXE</button>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">⚙️</div>
+                        <h3>Settings & Scripts</h3>
+                        <p>Upload configuration files and optimization scripts</p>
+                        <button class="btn-tool">Upload Files</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 GameForge 3D. Premium Gaming Platform.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
